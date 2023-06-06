@@ -1,1 +1,2 @@
 # LLM-prototype-app
+This repository is a template repository of the LLM application prototype. It is a web application that allows users to create and manage their own learning paths. The application is built using the streamlit

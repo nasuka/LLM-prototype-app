@@ -1,0 +1,25 @@
+name: Lint
+
+on: [push]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: setup
+        id: setup
+        uses: ./.github/actions/setup
+
+      - name: Cache Mypy
+        uses: actions/cache@v3
+        id: mypy
+        with:
+          path: .mypy_cache
+          key: ${{ hashFiles('**/poetry.lock') }}-mypy
+
+      - name: Lint
+        run: |
+          make lint
